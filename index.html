@@ -82,17 +82,32 @@ footer a:hover { opacity:.45; }
 .tagline-strip a { font-size:.62rem; letter-spacing:.15em; text-transform:uppercase; color:var(--gray); text-decoration:none; border-bottom:1px solid var(--light); padding-bottom:2px; transition:color .2s, border-color .2s; }
 .tagline-strip a:hover { color:var(--black); border-color:var(--black); }
 </style>
+<style>
+.nav-right { display:flex; align-items:center; }
+.lang-switch { display:flex; gap:.3rem; border-left:1px solid var(--light); padding-left:1.2rem; margin-left:1.6rem; }
+.lang-btn { font-family:var(--sans); font-size:.58rem; letter-spacing:.08em; text-transform:uppercase; background:none; border:none; color:var(--gray); cursor:pointer; padding:3px 4px; transition:color .2s; line-height:1; }
+.lang-btn.active { color:var(--black); border-bottom:1px solid var(--black); padding-bottom:2px; }
+.lang-btn:hover { color:var(--black); }
+</style>
 </head>
 <body>
 
 <nav>
   <a class="nav-logo" href="index.html">li27n</a>
-  <ul class="nav-links">
-    <li><a href="works.html" id="nav-works">Works</a></li>
-    <li><a href="about.html" id="nav-about">About</a></li>
-    <li><a href="https://instagram.com/li27n" target="_blank">Instagram</a></li>
-    <li><a href="https://x.com/_nunu0608" target="_blank">X</a></li>
-  </ul>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="works.html" id="nav-works">Works</a></li>
+      <li><a href="about.html" id="nav-about">About</a></li>
+      <li><a href="https://instagram.com/li27n" target="_blank">Instagram</a></li>
+      <li><a href="https://x.com/_nunu0608" target="_blank">X</a></li>
+    </ul>
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="zh-hans">简</button>
+      <button class="lang-btn" data-lang="zh-hant">繁</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="ja">JP</button>
+    </div>
+  </div>
 </nav>
 
 <script>document.getElementById('nav-works') && (document.getElementById('nav-works').style.color='');</script>
@@ -102,9 +117,9 @@ footer a:hover { opacity:.45; }
   <div class="hero-overlay"></div>
   <div class="hero-text">
     <h1>li<i>27</i>n</h1>
-    <p>Digital Illustration &nbsp;·&nbsp; 画家</p>
+    <p data-i18n="hero-sub">Digital Illustration &nbsp;·&nbsp; 画家</p>
   </div>
-  <div class="hero-cta"><a href="works.html">View Works →</a></div>
+  <div class="hero-cta"><a href="works.html" data-i18n="hero-cta">View Works →</a></div>
 </section>
 
 <div class="featured rv">
@@ -116,8 +131,8 @@ footer a:hover { opacity:.45; }
 </div>
 
 <div class="sec-head rv">
-  <h2>Selected Works</h2>
-  <a href="works.html">View all →</a>
+  <h2 data-i18n="sec-works">Selected Works</h2>
+  <a href="works.html" data-i18n="sec-view-all">View all →</a>
 </div>
 
 <div class="home-grid rv">
@@ -154,14 +169,14 @@ footer a:hover { opacity:.45; }
       </a>
       <div class="work-meta">
         <span class="work-title">窗</span>
-        <span class="work-info">2024</span>
+        <span class="work-info">2026</span>
       </div>
     </div>
 </div>
 
 <div class="tagline-strip rv">
-  <p>喜欢画那些容易被忽略的瞬间——街角的大树、巷子里的光影、陌生人的背影。</p>
-  <a href="about.html">About li27n →</a>
+  <p data-i18n="tagline">喜欢画那些容易被忽略的瞬间——街角的大树、巷子里的光影、陌生人的背影。</p>
+  <a href="about.html" data-i18n="about-link">About li27n →</a>
 </div>
 
 
@@ -189,5 +204,50 @@ const io = new IntersectionObserver(entries => {
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 </script>
 
+<script>
+const LANG_KEY='li27n_lang';
+const tI={
+  'zh-hans':{
+    'hero-sub':'Digital Illustration &nbsp;·&nbsp; 画家',
+    'hero-cta':'View Works →',
+    'sec-works':'Selected Works',
+    'sec-view-all':'View all →',
+    'tagline':'喜欢画那些容易被忽略的瞬间——街角的大树、巷子里的光影、陌生人的背影。',
+    'about-link':'About li27n →',
+  },
+  'zh-hant':{
+    'hero-sub':'Digital Illustration &nbsp;·&nbsp; 畫家',
+    'hero-cta':'查看作品 →',
+    'sec-works':'精選作品',
+    'sec-view-all':'查看全部 →',
+    'tagline':'喜歡畫那些容易被忽略的瞬間——街角的大樹、巷子裡的光影、陌生人的背影。',
+    'about-link':'About li27n →',
+  },
+  'en':{
+    'hero-sub':'Digital Illustration &nbsp;·&nbsp; Artist',
+    'hero-cta':'View Works →',
+    'sec-works':'Selected Works',
+    'sec-view-all':'View all →',
+    'tagline':'Drawing the moments easily overlooked — the trees at street corners, light and shadow in alleys, the silhouettes of strangers.',
+    'about-link':'About li27n →',
+  },
+  'ja':{
+    'hero-sub':'Digital Illustration &nbsp;·&nbsp; 画家',
+    'hero-cta':'作品を見る →',
+    'sec-works':'厳選作品',
+    'sec-view-all':'すべて見る →',
+    'tagline':'見落とされがちな瞬間を描く——街角の木、路地の光と影、見知らぬ人の後ろ姿。',
+    'about-link':'About li27n →',
+  },
+};
+function applyLangI(lang){
+  localStorage.setItem(LANG_KEY,lang);
+  document.documentElement.lang={'zh-hans':'zh','zh-hant':'zh-TW','en':'en','ja':'ja'}[lang]||'zh';
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const v=tI[lang]?.[el.dataset.i18n];if(v!==undefined)el.innerHTML=v;});
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
+}
+document.querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>applyLangI(b.dataset.lang)));
+applyLangI(localStorage.getItem(LANG_KEY)||'zh-hans');
+</script>
 </body>
 </html>
