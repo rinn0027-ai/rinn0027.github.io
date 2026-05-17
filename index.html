@@ -262,7 +262,7 @@ function applyLangI(lang){
   document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
 }
 document.querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>applyLangI(b.dataset.lang)));
-applyLangI(localStorage.getItem(LANG_KEY)||'zh-hans');
+applyLangI(localStorage.getItem(LANG_KEY)||'en');
 </script>
 </body>
 </html>
