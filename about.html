@@ -54,21 +54,36 @@ footer span { font-size:.58rem; letter-spacing:.12em; text-transform:uppercase; 
 .contact-links a svg { width:15px; height:15px; flex-shrink:0; }
 .contact-links .note { font-size:.65rem; color:var(--gray); letter-spacing:.1em; }
 </style>
+<style>
+.nav-right { display:flex; align-items:center; }
+.lang-switch { display:flex; gap:.3rem; border-left:1px solid var(--light); padding-left:1.2rem; margin-left:1.6rem; }
+.lang-btn { font-family:var(--sans); font-size:.58rem; letter-spacing:.08em; text-transform:uppercase; background:none; border:none; color:var(--gray); cursor:pointer; padding:3px 4px; transition:color .2s; line-height:1; }
+.lang-btn.active { color:var(--black); border-bottom:1px solid var(--black); padding-bottom:2px; }
+.lang-btn:hover { color:var(--black); }
+</style>
 </head>
 <body>
 <nav>
   <a class="nav-logo" href="index.html">li27n</a>
-  <ul class="nav-links">
-    <li><a href="works.html" id="nav-works">Works</a></li>
-    <li><a href="about.html" id="nav-about">About</a></li>
-    <li><a href="https://instagram.com/li27n" target="_blank">Instagram</a></li>
-    <li><a href="https://x.com/_nunu0608" target="_blank">X</a></li>
-  </ul>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="works.html" id="nav-works">Works</a></li>
+      <li><a href="about.html" id="nav-about">About</a></li>
+      <li><a href="https://instagram.com/li27n" target="_blank">Instagram</a></li>
+      <li><a href="https://x.com/_nunu0608" target="_blank">X</a></li>
+    </ul>
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="zh-hans">简</button>
+      <button class="lang-btn" data-lang="zh-hant">繁</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="ja">JP</button>
+    </div>
+  </div>
 </nav>
 <script>document.getElementById('nav-about').classList.add('active');</script>
 
 <div class="page-header rv">
-  <h1>About</h1>
+  <h1 data-i18n="page-title">About</h1>
 </div>
 
 <div class="about-body rv">
@@ -77,25 +92,24 @@ footer span { font-size:.58rem; letter-spacing:.12em; text-transform:uppercase; 
   </div>
   <div class="about-text">
     <div>
-      <h2>喜欢画那些<br>容易被忽略的瞬间。</h2>
-      <p>li27n 是一位独立数字插画师，长期以城市日常与自然风景为题材进行创作。</p>
-      <p>画面里常有植物、天空与孤独行走的人，游走于具象与半抽象之间，用松散的色块与笔触，捕捉那些转瞬即逝的温柔。</p>
-      <p class="muted">既画油画，也做数字插画。喜欢街巷、树荫、和下午的光。</p>
+      <h2 data-i18n="tagline">喜欢画那些<br>容易被忽略的瞬间。</h2>
+      <p data-i18n="bio">li27n，独立插画师。城市日常与自然风景，捕捉转瞬即逝的温柔。</p>
+      <p class="muted" data-i18n="bio-muted">喜欢街巷、树荫、和下午的光。</p>
     </div>
   </div>
 </div>
 
 <div class="facts-strip rv">
   <div class="fact">
-    <span class="fact-label">媒介</span>
-    <span class="fact-value">Digital illustration<br>Oil on canvas</span>
+    <span class="fact-label" data-i18n="fact-medium-label">媒介</span>
+    <span class="fact-value">Digital illustration<br>Acrylic on canvas</span>
   </div>
   <div class="fact">
-    <span class="fact-label">主题</span>
-    <span class="fact-value">城市日常<br>自然 · 人物</span>
+    <span class="fact-label" data-i18n="fact-theme-label">主题</span>
+    <span class="fact-value" data-i18n="fact-theme-value">城市日常<br>自然 · 人物</span>
   </div>
   <div class="fact">
-    <span class="fact-label">Find me</span>
+    <span class="fact-label" data-i18n="fact-find-label">Find me</span>
     <span class="fact-value">@li27n<br>@_nunu0608</span>
   </div>
 </div>
@@ -105,7 +119,7 @@ footer span { font-size:.58rem; letter-spacing:.12em; text-transform:uppercase; 
 </div>
 
 <div class="contact-strip rv">
-  <h3>委托创作 · 展览合作<br>欢迎联系。</h3>
+  <h3 data-i18n="contact-h3">委托创作 · 展览合作<br>欢迎联系。</h3>
   <div class="contact-links">
     <a href="https://instagram.com/li27n" target="_blank">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
@@ -115,7 +129,7 @@ footer span { font-size:.58rem; letter-spacing:.12em; text-transform:uppercase; 
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
       X &nbsp;@_nunu0608
     </a>
-    <span class="note">通过 DM 联系即可</span>
+    <span class="note" data-i18n="contact-note">通过 DM 联系即可</span>
   </div>
 </div>
 
@@ -135,6 +149,59 @@ const io = new IntersectionObserver(entries=>{
   entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('on'),i*60);io.unobserve(e.target);}});
 },{threshold:0.07});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+<script>
+const LANG_KEY='li27n_lang';
+const tA={
+  'zh-hans':{
+    'page-title':'About',
+    'tagline':'喜欢画那些<br>容易被忽略的瞬间。',
+    'bio':'li27n，独立插画师。城市日常与自然风景，捕捉转瞬即逝的温柔。',
+    'bio-muted':'喜欢街巷、树荫、和下午的光。',
+    'fact-medium-label':'媒介','fact-theme-label':'主题','fact-find-label':'Find me',
+    'fact-theme-value':'城市日常<br>自然 · 人物',
+    'contact-h3':'委托创作 · 展览合作<br>欢迎联系。',
+    'contact-note':'通过 DM 联系即可',
+  },
+  'zh-hant':{
+    'page-title':'About',
+    'tagline':'喜歡畫那些<br>容易被忽略的瞬間。',
+    'bio':'li27n，獨立插畫師。城市日常與自然風景，捕捉轉瞬即逝的溫柔。',
+    'bio-muted':'喜歡街巷、樹蔭、和下午的光。',
+    'fact-medium-label':'媒介','fact-theme-label':'主題','fact-find-label':'Find me',
+    'fact-theme-value':'城市日常<br>自然 · 人物',
+    'contact-h3':'委託創作 · 展覽合作<br>歡迎聯繫。',
+    'contact-note':'透過 DM 聯繫即可',
+  },
+  'en':{
+    'page-title':'About',
+    'tagline':'Drawing the moments<br>easily overlooked.',
+    'bio':'li27n, independent illustrator. Urban scenes and natural landscapes, capturing fleeting tenderness in loose brushstrokes.',
+    'bio-muted':'A lover of alleys, tree shade, and afternoon light.',
+    'fact-medium-label':'Medium','fact-theme-label':'Theme','fact-find-label':'Find me',
+    'fact-theme-value':'Urban Daily Life<br>Nature · Figures',
+    'contact-h3':'Commission · Exhibition<br>Let's connect.',
+    'contact-note':'Reach out via DM',
+  },
+  'ja':{
+    'page-title':'About',
+    'tagline':'見落とされがちな<br>瞬間を描く。',
+    'bio':'li27n、独立イラストレーター。都市の日常と自然の風景を、ゆるやかな色面で捉える。',
+    'bio-muted':'路地、木陰、午後の光が好き。',
+    'fact-medium-label':'媒体','fact-theme-label':'テーマ','fact-find-label':'Find me',
+    'fact-theme-value':'都市の日常<br>自然 · 人物',
+    'contact-h3':'制作依頼 · 展示協力<br>お気軽にご連絡を。',
+    'contact-note':'DMでお気軽にどうぞ',
+  },
+};
+function applyLang(lang){
+  localStorage.setItem(LANG_KEY,lang);
+  document.documentElement.lang={'zh-hans':'zh','zh-hant':'zh-TW','en':'en','ja':'ja'}[lang]||'zh';
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const v=tA[lang]?.[el.dataset.i18n];if(v!==undefined)el.innerHTML=v;});
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
+}
+document.querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.lang)));
+applyLang(localStorage.getItem(LANG_KEY)||'zh-hans');
 </script>
 </body>
 </html>
